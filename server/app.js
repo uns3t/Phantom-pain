@@ -1,40 +1,54 @@
-var app = require('koa')()
-  , logger = require('koa-logger')
-  , json = require('koa-json')
-  , views = require('koa-views')
-  , onerror = require('koa-onerror');
-
-var index = require('./routes/index');
-var users = require('./routes/users');
+const Koa = require('koa')
+const app = new Koa()
+const views = require('koa-views')
+const json = require('koa-json')
+const onerror = require('koa-onerror')
+const bodyparser = require('koa-bodyparser')
+const logger = require('koa-logger')
+const cors = require('koa2-cors')
+const mongoose=require('mongoose')
+const dbs=require('./db/config')
+const router=require('./router')
 
 // error handler
-onerror(app);
+onerror(app)
 
-// global middlewares
-app.use(views('views', {
-  root: __dirname + '/views',
-  default: 'jade'
+// middlewares
+
+app.use(cors({
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
+  maxAge: 100,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous','Access-Token'],
 }));
-app.use(require('koa-bodyparser')());
-app.use(json());
-app.use(logger());
 
-app.use(function *(next){
-  var start = new Date;
-  yield next;
-  var ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
-});
+app.use(bodyparser({
+  enableTypes:['json', 'form', 'text']
+}))
+app.use(json())
+app.use(logger())
 
-app.use(require('koa-static')(__dirname + '/public'));
 
-// routes definition
-app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
+// logger
+app.use(async (ctx, next) => {
+  const start = new Date()
+  await next()
+  const ms = new Date() - start
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+})
+
+
+mongoose.connect(dbs.dbpath)
+
+// routes
+
+app.use(router.routes()).use(router.allowedMethods());
+
 
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-module.exports = app;
+module.exports = app

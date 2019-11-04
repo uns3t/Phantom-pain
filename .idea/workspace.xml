@@ -2,23 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="788ae7af-63f9-4b86-9f5e-d3e0e63709fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/apis/getnote.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/apis/getquotation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/apis/postdeletequotation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/apis/postlogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/apis/postnewnote.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/apis/postnewquotation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/apis/postsignup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/bin/www" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/postnote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/model/notedb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/model/quotationdb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/model/userdb.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/getnote.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/getquotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/getquotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postdeletenote.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postdeletenote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postdeletequotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postdeletequotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postlogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postlogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postnewnote.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postnewnote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postnewquotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postnewquotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postsignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postsignup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,9 +38,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/server/db/config.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/server/db/model/userdb.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/server/db/model/quotationdb.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/server/db/model/notedb.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/components/idealist/Idealist.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/components/ideadetail/Ideadetail.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/server/app.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/index.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/server/router.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1Smkm32GVpePXPNjjG41o6laxzd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -100,7 +106,7 @@
       <workItem from="1572262042615" duration="20000" />
       <workItem from="1572676374512" duration="609000" />
       <workItem from="1572749594223" duration="15000" />
-      <workItem from="1572855635413" duration="1451000" />
+      <workItem from="1572855635413" duration="4198000" />
     </task>
     <servers />
   </component>
