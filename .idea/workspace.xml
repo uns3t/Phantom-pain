@@ -2,27 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="788ae7af-63f9-4b86-9f5e-d3e0e63709fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/pure.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/Admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ideadetail/Ideadetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ideadetail/ideadetail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/idealist/Idealist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/idealist/idealist.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/getnote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/getquotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/postdeletequotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/postlogin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/postnewnote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/postnewquotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/apis/postsignup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/bin/www" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -43,8 +39,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/components/idealist/Idealist.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/router.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/components/ideadetail/Ideadetail.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/index.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1Smkm32GVpePXPNjjG41o6laxzd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -102,7 +98,9 @@
       <workItem from="1572176316670" duration="3322000" />
       <workItem from="1572186338861" duration="2761000" />
       <workItem from="1572262042615" duration="20000" />
-      <workItem from="1572676374512" duration="15000" />
+      <workItem from="1572676374512" duration="609000" />
+      <workItem from="1572749594223" duration="15000" />
+      <workItem from="1572855635413" duration="1451000" />
     </task>
     <servers />
   </component>
