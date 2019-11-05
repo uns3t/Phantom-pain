@@ -1,89 +1,211 @@
-import { Drawer, Button, Radio } from 'antd';
+import { Drawer, Button, Form, Icon, Input } from 'antd';
 import React from "react"
 import axios from "../../axios.js";
 import "./home.css"
 import "animate.css"
 
-const RadioGroup = Radio.Group;
+
 
 
 export default class Home extends React.Component{
-    constructor(props){
-        super(props)
 
-        this.changequotation=this.changequotation.bind(this)
-    }
     state={
         quotation:"我会穿过那七大海洋，将我的爱意带到你身边",
-        visible: false,
+        signupvisible: false,
+        loginvisible: false,
+        signupform:{
+            username:'',
+            pwd:'',
+            pwdconfirm:''
+        },
+        loginform:{
+            username: "",
+            pwd:""
+        }
+
     }
-    showDrawer = () => {
+    signupshowDrawer = () => {
         this.setState({
-            visible: true,
+            signupvisible: true,
         });
     };
 
-    onClose = () => {
+    signuponClose = () => {
         this.setState({
-            visible: false,
+            signupvisible: false,
+        });
+    };
+    loginshowDrawer = () => {
+        this.setState({
+            loginvisible: true,
         });
     };
 
-    onChange = e => {
+    loginonClose = () => {
         this.setState({
-            placement: e.target.value,
+            loginvisible: false,
         });
     };
+
 
     componentDidMount() {
+        this.changequotation()
+    }
+
+    changequotation=()=>{
         axios.get("/getquotation").then((res) => {
             console.log(res)
             this.setState({
                 quotation:res.quotation.quotation,
             })
-
             console.log(this.state)
-
         })
 
     }
 
-    changequotation(){
-        axios.get("/getquotation").then((res) => {
-            console.log(res)
-            this.setState({
-                quotation:res.quotation.quotation,
-            })
+    tosignup=(e)=>{
+        e.preventDefault()
+        console.log(this.state.signupform)
+    }
 
-            console.log(this.state)
-
-        })
-
+    tologin=(e)=>{
+        e.preventDefault()
+        console.log(this.state.loginform)
     }
 
     render() {
         return(
             <div>
-                <div className="quotation animated fadeIn" onClick={this.changequotation}>
-                    {this.state.quotation}
-                </div>
-                <div className="touser">
-                    <div className="buttondetail" onClick={this.showDrawer}>签订契约</div>
+                <div className="home">
+                    <div className="quotation animated fadeIn" onClick={this.changequotation}>
+                        {this.state.quotation}
+                    </div>
+                    <div className="touser">
+                        <div className="buttondetail" onClick={this.signupshowDrawer}>签订契约</div>
 
-                    <div className="buttondetail">Link start</div>
+                        <div className="buttondetail" onClick={this.loginshowDrawer}>Link start</div>
+                    </div>
                 </div>
                 <div>
 
                     <Drawer
                         title="契約を結ぶ"
-                        placement={this.state.placement}
+                        placement="left"
                         closable={true}
-                        onClose={this.onClose}
-                        visible={this.state.visible}
+                        onClose={this.signuponClose}
+                        visible={this.state.signupvisible}
+                        width={300}
                     >
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
+                        <Form onSubmit={this.tosignup} className="login-form">
+                            <Form.Item>
+                                    <Input
+                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        placeholder="Username"
+                                        value={this.state.signupform.username}
+                                        onChange={(e)=>{
+                                            let data = Object.assign({}, this.state.signupform, {
+                                                username: e.target.value
+                                            })
+                                            this.setState({
+                                                signupform:data
+                                            })
+                                        }
+                                        }
+                                    />
+                            </Form.Item>
+                            <Form.Item>
+                                    <Input
+                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        type="password"
+                                        placeholder="Password"
+                                        value={this.state.signupform.pwd}
+                                        onChange={(e)=>{
+                                            let data = Object.assign({}, this.state.signupform, {
+                                                pwd: e.target.value
+                                            })
+                                            this.setState({
+                                                signupform:data
+                                            })
+                                        }
+                                        }
+                                    />
+                            </Form.Item>
+                            <Form.Item>
+                                <Input
+                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    type="password"
+                                    placeholder="PasswordConfirm"
+                                    value={this.state.signupform.pwdconfirm}
+                                    onChange={(e)=>{
+                                        let data = Object.assign({}, this.state.signupform, {
+                                            pwdconfirm: e.target.value
+                                        })
+                                        this.setState({
+                                            signupform:data
+                                        })
+                                    }
+                                    }
+                                />
+                            </Form.Item>
+                            <Form.Item>
+                                <Button htmlType="submit" className="login-form-button">
+                                    注册
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </Drawer>
+
+
+
+                    <Drawer
+                        title="Link Start"
+                        placement="right"
+                        closable={true}
+                        onClose={this.loginonClose}
+                        visible={this.state.loginvisible}
+                        width={300}
+                    >
+                        <Form onSubmit={this.tologin} className="login-form">
+                            <Form.Item>
+                                <Input
+                                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    placeholder="Username"
+                                    value={this.state.loginform.username}
+                                    onChange={(e)=>{
+                                        let data = Object.assign({}, this.state.loginform, {
+                                            username: e.target.value
+                                        })
+                                        this.setState({
+                                            loginform:data
+                                        })
+                                    }
+                                    }
+                                />
+                            </Form.Item>
+                            <Form.Item>
+                                <Input
+                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    type="password"
+                                    placeholder="Password"
+                                    value={this.state.loginform.pwd}
+                                    onChange={(e)=>{
+                                        let data = Object.assign({}, this.state.loginform, {
+                                            pwd: e.target.value
+                                        })
+                                        this.setState({
+                                            loginform:data
+                                        })
+                                    }
+                                    }
+                                />
+                            </Form.Item>
+
+                            <Form.Item>
+                                <Button htmlType="submit" className="login-form-button">
+                                    登陆
+                                </Button>
+                            </Form.Item>
+                        </Form>
                     </Drawer>
                 </div>
             </div>
