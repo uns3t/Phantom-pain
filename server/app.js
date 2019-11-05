@@ -1,6 +1,5 @@
 const Koa = require('koa')
 const app = new Koa()
-const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
@@ -49,6 +48,10 @@ app.use(router.routes()).use(router.allowedMethods());
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
+});
+
+app.listen(3000,'0.0.0.0',()=>{
+  console.log("后端启动并监听 3000端口")
 });
 
 module.exports = app

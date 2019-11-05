@@ -19,6 +19,7 @@ router.post("/postnewnote",postnewnote)
 router.post("/postnewquotation",postnewquotation)
 router.post("/postsignup",postsignup)
 router.post("/getnote",postnote)
+
 router.get("/getquotation",getquotation)
 
 
