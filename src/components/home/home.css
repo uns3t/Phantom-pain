@@ -1,0 +1,36 @@
+
+
+.home{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*background: #565d64;*/
+}
+
+.quotation{
+
+    font-size: 30px;
+    text-align: center;
+}
+.quotation:hover{
+    cursor: pointer;
+    color: darkred;
+}
+
+.touser{
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+.buttondetail{
+    margin: 10px;
+}
+
+.buttondetail:hover{
+    color: darkred;
+    cursor: pointer;
+}

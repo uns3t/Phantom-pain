@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { createBrowserHistory } from "history";
 import {Router, Route, Switch} from "react-router-dom";
+import 'antd/dist/antd.css';
 import Home from "./components/home/Home.js"
 import Admin from "./components/admin/Admin.js"
 import Ideadetail from "./components/ideadetail/Ideadetail.js"
@@ -17,7 +18,6 @@ ReactDOM.render(
             <Route path="/ideadetail" component={Ideadetail}/>
             <Route path="/idealist" component={Idealist}/>
             <Route path="/" component={Home}/>
-
         </Switch>
     </Router>
     , document.getElementById('root'));

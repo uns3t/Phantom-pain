@@ -50,8 +50,8 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-app.listen(3000,'0.0.0.0',()=>{
-  console.log("后端启动并监听 3000端口")
+app.listen(10001,'0.0.0.0',()=>{
+  console.log("后端启动并监听 10001端口")
 });
 
 module.exports = app
