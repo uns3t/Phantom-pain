@@ -81,6 +81,12 @@ class Home extends React.Component{
         console.log(this.state.loginform)
         axios.post("/postlogin",this.state.loginform).then((res)=>{
             console.log(res)
+            if(res.code===0){
+                console.log("登陆成功")
+                this.props.loginSuccess({token:res.token})
+            }
+
+            console.log(this.props)
         })
     }
 
