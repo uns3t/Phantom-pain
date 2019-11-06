@@ -5,6 +5,7 @@ import "./home.css"
 import "animate.css"
 import { connect } from 'react-redux'
 import {loginSuccess} from '../../redux/user.redux.js'
+import {Route} from "react-router-dom";
 
 @connect(
     state=>state.user,
@@ -84,9 +85,11 @@ class Home extends React.Component{
             if(res.code===0){
                 console.log("登陆成功")
                 this.props.loginSuccess({token:res.token})
+                console.log(this.props)
+                this.props.history.push("/idealist")
             }
 
-            console.log(this.props)
+
         })
     }
 

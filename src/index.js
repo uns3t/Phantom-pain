@@ -12,7 +12,6 @@ import {Router, Route, Switch} from "react-router-dom";
 import 'antd/dist/antd.css';
 import Home from "./components/home/Home.js"
 import Admin from "./components/admin/Admin.js"
-import Ideadetail from "./components/ideadetail/Ideadetail.js"
 import Idealist from "./components/idealist/Idealist.js"
 import reducers from "./redux/redux.js"
 
@@ -30,8 +29,7 @@ ReactDOM.render(
         <Router history={routerhistory}>
             <Switch>
                 <Route path="/admin" component={Admin}/>
-                <Route path="/ideadetail" component={Ideadetail}/>
-                <Route path="/idealist" component={Idealist}/>
+                <Route path="/notelist" component={Idealist}/>
                 <Route path="/" component={Home}/>
             </Switch>
         </Router>

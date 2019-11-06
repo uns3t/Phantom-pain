@@ -24,6 +24,7 @@ const postnewnote=async(ctx)=>{
 
     let newnote=new notedb({
         note:body.note,
+        title:body.title,
         username:body.username,  //之后换为token
         time:new Date().Format("yyyy/MM/dd HH:mm:ss")
     })

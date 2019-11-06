@@ -1,0 +1,15 @@
+.allnote{
+    margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.addnote{
+  width: 60%;
+    margin: 0 auto;
+}
+
+.onenote{
+    margin: 20px;
+}

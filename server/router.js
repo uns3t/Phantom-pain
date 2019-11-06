@@ -18,7 +18,7 @@ router.post("/postlogin",postlogin)
 router.post("/postnewnote",postnewnote)
 router.post("/postnewquotation",postnewquotation)
 router.post("/postsignup",postsignup)
-router.post("/getnote",postnote)
+router.post("/postnote",postnote)
 
 router.get("/getquotation",getquotation)
 
