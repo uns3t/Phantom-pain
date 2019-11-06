@@ -3,11 +3,15 @@ import React from "react"
 import axios from "../../axios.js";
 import "./home.css"
 import "animate.css"
+import { connect } from 'react-redux'
+import {loginSuccess} from '../../redux/user.redux.js'
 
+@connect(
+    state=>state.user,
+    {loginSuccess}
+)
 
-
-
-export default class Home extends React.Component{
+class Home extends React.Component{
 
     state={
         quotation:"我会穿过那七大海洋，将我的爱意带到你身边",
@@ -49,6 +53,7 @@ export default class Home extends React.Component{
 
 
     componentDidMount() {
+        console.log(this.props)
         this.changequotation()
     }
 
@@ -66,11 +71,17 @@ export default class Home extends React.Component{
     tosignup=(e)=>{
         e.preventDefault()
         console.log(this.state.signupform)
+        axios.post("/postsignup",this.state.signupform).then((res)=>{
+            console.log(res)
+        })
     }
 
     tologin=(e)=>{
         e.preventDefault()
         console.log(this.state.loginform)
+        axios.post("/postlogin",this.state.loginform).then((res)=>{
+            console.log(res)
+        })
     }
 
     render() {
@@ -212,3 +223,5 @@ export default class Home extends React.Component{
         )
     }
 }
+
+export default Home
