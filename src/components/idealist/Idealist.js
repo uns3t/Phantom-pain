@@ -3,7 +3,7 @@ import axios from "../../axios"
 import "./idealist.css"
 import { connect } from 'react-redux'
 import {Route} from "react-router-dom";
-import { Card } from 'antd';
+import {Card, Form, Icon} from 'antd';
 import { Modal, Button } from 'antd';
 import {Tabs} from "antd";
 import { Input } from 'antd';
@@ -24,10 +24,16 @@ export default class Idealist extends React.Component{
         notedetail:'',
         notetitle:'',
         notedate:'',
-        noteuser:''
+        noteuser:'',
+        newnote:{
+            title:'',
+            note:'',
+        }
     }
 
+
     componentDidMount() {
+        console.log(this.props)
         axios.post("/postnote",{
             username:"test"
         }).then((res)=>{
@@ -62,6 +68,21 @@ export default class Idealist extends React.Component{
 
     }
 
+    addnote=(e)=>{
+        e.preventDefault()
+        console.log(this.state.newnote)
+        axios.post("/postnewnote",{
+            note:this.state.newnote.note,
+            title:this.state.newnote.title,
+            username:"test"
+        }).then((res)=>{
+            if(res.code===0){
+                console.log("添加成功")
+            }
+        })
+
+    }
+
     render() {
 
         let notecard=this.state.notes.map((note)=>{
@@ -69,7 +90,7 @@ export default class Idealist extends React.Component{
                 <div key={note._id} className="onenote">
                     <Card title={note.title} extra={<a onClick={(e)=>this.showmodal(note,e)}>More</a>} style={{ width: 300 }}>
                         <p>{note.note.substr(0,25)}</p>
-                        <p>{note.date}</p>
+                        <p>{note.time}</p>
                     </Card>
                 </div>
             )
@@ -77,15 +98,55 @@ export default class Idealist extends React.Component{
 
         return(
             <div>
-                <Tabs defaultActiveKey="2">
+                <Tabs defaultActiveKey="1">
                     <TabPane tab="便签列表" key="1">
                         <div className="allnote">
                             {notecard}
                         </div>
                     </TabPane>
+
                     <TabPane tab="添加便签" key="2">
                         <div className="addnote">
-                        aaaa
+                            <Form onSubmit={this.addnote} className="login-form">
+                                <Form.Item>
+                                    <Input
+                                        prefix={<Icon type="edit" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        placeholder="title"
+                                        value={this.state.newnote.title}
+                                        onChange={(e)=>{
+                                            let data = Object.assign({}, this.state.newnote, {
+                                                title: e.target.value
+                                            })
+                                            this.setState({
+                                                newnote:data
+                                            })
+                                        }
+                                        }
+                                    />
+                                </Form.Item>
+                                <Form.Item>
+                                    <TextArea rows={8}
+                                              placeholder="note"
+                                              value={this.state.newnote.note}
+                                              onChange={(e)=>{
+                                                  let data = Object.assign({}, this.state.newnote, {
+                                                      note: e.target.value
+                                                  })
+                                                  this.setState({
+                                                      newnote:data
+                                                  })
+                                              }
+                                              }
+                                    />
+
+                                </Form.Item>
+
+                                <Form.Item>
+                                    <Button htmlType="submit" className="login-form-button">
+                                        添加
+                                    </Button>
+                                </Form.Item>
+                            </Form>
                         </div>
                     </TabPane>
 

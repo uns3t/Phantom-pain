@@ -86,7 +86,7 @@ class Home extends React.Component{
                 console.log("登陆成功")
                 this.props.loginSuccess({token:res.token})
                 console.log(this.props)
-                this.props.history.push("/idealist")
+                this.props.history.push("/notelist")
             }
 
 
