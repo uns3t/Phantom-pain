@@ -2,8 +2,8 @@ const quotationdb=require("../db/model/quotationdb")
 
 
 const postdeletequotation=async(ctx)=>{
-    quotationtemp=ctx.request.body.quotation
-    await quotationdb.where({quotation:quotationtemp}).remove()
+    id=ctx.request.body._id
+    await quotationdb.where({_id:id}).remove()
 
     ctx.body={
         code:0

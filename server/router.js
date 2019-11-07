@@ -7,6 +7,7 @@ const postnewquotation=require('./apis/postnewquotation')
 const postsignup=require('./apis/postsignup')
 const postnote=require('./apis/postnote')
 const getquotation=require('./apis/getquotation')
+const getallquotation=require('./apis/getallquotation')
 
 const router=new Router({
     prefix: '/api/v1'
@@ -21,6 +22,7 @@ router.post("/postsignup",postsignup)
 router.post("/postnote",postnote)
 
 router.get("/getquotation",getquotation)
+router.get("/getallquotation",getallquotation)
 
 
 module.exports=router

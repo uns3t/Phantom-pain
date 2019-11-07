@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="788ae7af-63f9-4b86-9f5e-d3e0e63709fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/apis/getallquotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/idealist/Idealist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/idealist/Idealist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/apis/postdeletequotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/apis/postdeletequotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/Admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/home.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/src/components/home/home.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.babelrc" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public/index.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/server/apis/getallquotation.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/app.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/apis/postnewnote.js" root0="SKIP_INSPECTION" />
@@ -44,8 +49,10 @@
     <setting file="file://$PROJECT_DIR$/src/components/idealist/Idealist.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/apis/getquotation.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/apis/postdeletenote.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/components/admin/Admin.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/apis/postdeletequotation.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/apis/postlogin.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/components/admin/admin.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/server/router.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/redux/redux.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/redux/user.redux.js" root0="SKIP_INSPECTION" />
@@ -120,7 +127,7 @@
       <workItem from="1572882579294" duration="22605000" />
       <workItem from="1573005536169" duration="2481000" />
       <workItem from="1573030787401" duration="5957000" />
-      <workItem from="1573122839375" duration="1226000" />
+      <workItem from="1573122839375" duration="3417000" />
     </task>
     <servers />
   </component>
