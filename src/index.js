@@ -14,25 +14,40 @@ import Home from "./components/home/Home.js"
 import Admin from "./components/admin/Admin.js"
 import Idealist from "./components/idealist/Idealist.js"
 import reducers from "./redux/redux.js"
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import {PersistGate} from 'redux-persist/lib/integration/react';
 
-const store = createStore(reducers, compose(
+const persistConfig = {
+    key: 'root',
+    storage: storage,
+    stateReconciler: autoMergeLevel2
+};
+
+const myPersistReducer = persistReducer(persistConfig, reducers)
+
+const store = createStore(myPersistReducer, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ?
         window.devToolsExtension()
         : f => f
 ))
+const persistor = persistStore(store)
 
 const routerhistory=createBrowserHistory()
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={routerhistory}>
-            <Switch>
-                <Route path="/admin" component={Admin}/>
-                <Route path="/notelist" component={Idealist}/>
-                <Route path="/" component={Home}/>
-            </Switch>
-        </Router>
+        <PersistGate loading={null} persistor={persistor}>
+            <Router history={routerhistory}>
+                <Switch>
+                    <Route path="/admin" component={Admin}/>
+                    <Route path="/notelist" component={Idealist}/>
+                    <Route path="/" component={Home}/>
+                </Switch>
+            </Router>
+        </PersistGate>
     </Provider>
     , document.getElementById('root'));
 
