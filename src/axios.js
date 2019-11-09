@@ -8,7 +8,8 @@ axios.defaults.headers.delete['Content-Type'] = 'application/json'; //配置请�
 axios.defaults.headers.put['Content-Type'] = 'application/json'; //配置请求头
 
 // 当实例创建时设置默认配置
-axios.defaults.baseURL = 'http://localhost:10001/api/v1';
+// axios.defaults.baseURL = 'http://localhost:10001/api/v1';
+axios.defaults.baseURL = 'http://uns3t.cn:10001/api/v1';
 
 //http request 拦截器
 axios.interceptors.request.use((config) => {

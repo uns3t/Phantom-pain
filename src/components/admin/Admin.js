@@ -19,7 +19,6 @@ export default class Admin extends React.Component{
 
     componentDidMount() {
         axios.get("/getallquotation").then((res)=>{
-            console.log(res)
             this.setState({
                 quotations:res.quotation
             })
@@ -33,7 +32,6 @@ export default class Admin extends React.Component{
         }).then((res)=>{
             if(res.code===0){
                 this.openNotification("成功","添加成功")
-                console.log("添加成功")
             }
         })
     }
@@ -45,7 +43,6 @@ export default class Admin extends React.Component{
         }).then((res)=>{
             if(res.code===0){
                 this.openNotification("成功","删除成功")
-                console.log("删除成功")
             }
         })
     }

@@ -54,26 +54,21 @@ class Home extends React.Component{
 
 
     componentDidMount() {
-        console.log(this.props)
         this.changequotation()
     }
 
     changequotation=()=>{
         axios.get("/getquotation").then((res) => {
-            console.log(res)
             this.setState({
                 quotation:res.quotation.quotation,
             })
-            console.log(this.state)
         })
 
     }
 
     tosignup=(e)=>{
         e.preventDefault()
-        console.log(this.state.signupform)
         axios.post("/postsignup",this.state.signupform).then((res)=>{
-            console.log(res)
             if(res.code===0){
                 this.openNotification("成功","注册成功")
             }
@@ -82,13 +77,10 @@ class Home extends React.Component{
 
     tologin=(e)=>{
         e.preventDefault()
-        console.log(this.state.loginform)
         axios.post("/postlogin",this.state.loginform).then((res)=>{
-            console.log(res)
             if(res.code===0){
                 this.openNotification("成功","登陆成功")
                 this.props.loginSuccess({token:res.token})
-                console.log(this.props)
                 this.props.history.push("/notelist")
             }
 

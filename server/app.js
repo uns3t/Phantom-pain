@@ -11,8 +11,6 @@ const router=require('./router')
 const jwtTool=require("./tools/token")
 
 
-// error handler
-
 
 onerror(app)
 

@@ -33,11 +33,9 @@ export default class Idealist extends React.Component{
 
 
     componentDidMount() {
-        console.log(this.props)
         axios.post("/postnote",{
             token:this.props.token
         }).then((res)=>{
-            console.log(res)
             this.setState({
                 notes:res.usernote
             })
@@ -57,7 +55,6 @@ export default class Idealist extends React.Component{
         });
     };
     showmodal=(note)=>{
-        console.log(note)
         this.setState({
             notedetail:note.note,
             notetitle:note.title,
@@ -69,7 +66,6 @@ export default class Idealist extends React.Component{
 
     addnote=(e)=>{
         e.preventDefault()
-        console.log(this.state.newnote)
         axios.post("/postnewnote",{
             note:this.state.newnote.note,
             title:this.state.newnote.title,
