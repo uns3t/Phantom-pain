@@ -8,8 +8,12 @@ const cors = require('koa2-cors')
 const mongoose=require('mongoose')
 const dbs=require('./db/config')
 const router=require('./router')
+const jwtTool=require("./tools/token")
+
 
 // error handler
+
+
 onerror(app)
 
 // middlewares
@@ -35,6 +39,30 @@ app.use(async (ctx, next) => {
   await next()
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+})
+
+app.use(async (ctx,next)=>{
+  let usertoken=ctx.request.body.token||ctx.request.headers['access-token']
+  let tokencode=-1
+  if(usertoken){
+    try {
+      let tokentemp=jwtTool.jwtdecode(usertoken)
+      // console.log(tokentemp)
+      if(tokentemp.isadmin===1){
+        tokencode=1
+      }else {
+        tokencode=0
+      }
+      ctx.state.userinfo=tokentemp
+    }catch (e) {
+      ctx.response.status=401
+    }
+  }else{
+    tokencode=-1
+    //未登录的状态
+  }
+  ctx.state.tokencode=tokencode
+  await next()
 })
 
 

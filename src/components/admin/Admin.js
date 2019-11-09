@@ -1,10 +1,12 @@
 import React from "react"
 import "./admin.css"
 import axios from "../../axios"
-import {Button, Form, Icon, Input, Tabs} from "antd";
+import {Button, Form, Icon, Input, notification, Tabs} from "antd";
 import { Table, Divider, Tag } from 'antd';
 const { TabPane } = Tabs;
 const { TextArea } = Input;
+
+
 
 
 
@@ -30,6 +32,7 @@ export default class Admin extends React.Component{
             quotation:this.state.newquotation
         }).then((res)=>{
             if(res.code===0){
+                this.openNotification("成功","添加成功")
                 console.log("添加成功")
             }
         })
@@ -41,10 +44,17 @@ export default class Admin extends React.Component{
             _id:this.state._id
         }).then((res)=>{
             if(res.code===0){
+                this.openNotification("成功","删除成功")
                 console.log("删除成功")
             }
         })
     }
+    openNotification = (tl,msg) => {
+        notification.open({
+            message: tl,
+            description: msg,
+        });
+    };
 
     render() {
         const columns = [

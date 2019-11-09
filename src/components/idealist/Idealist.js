@@ -7,7 +7,7 @@ import {Card, Form, Icon} from 'antd';
 import { Modal, Button } from 'antd';
 import {Tabs} from "antd";
 import { Input } from 'antd';
-
+import { notification } from 'antd';
 const { TextArea } = Input;
 
 const { TabPane } = Tabs;
@@ -35,7 +35,7 @@ export default class Idealist extends React.Component{
     componentDidMount() {
         console.log(this.props)
         axios.post("/postnote",{
-            username:"test"
+            token:this.props.token
         }).then((res)=>{
             console.log(res)
             this.setState({
@@ -61,11 +61,10 @@ export default class Idealist extends React.Component{
         this.setState({
             notedetail:note.note,
             notetitle:note.title,
-            notedate:note.date,
+            notedate:note.time,
             noteuser:note.username,
             visible:true
         })
-
     }
 
     addnote=(e)=>{
@@ -74,14 +73,21 @@ export default class Idealist extends React.Component{
         axios.post("/postnewnote",{
             note:this.state.newnote.note,
             title:this.state.newnote.title,
-            username:"test"
+            token:this.props.token
         }).then((res)=>{
             if(res.code===0){
-                console.log("添加成功")
+                this.openNotification("成功","添加成功")
             }
         })
 
     }
+    openNotification = (tl,msg) => {
+        notification.open({
+            message: tl,
+            description:
+                msg,
+        });
+    };
 
     render() {
 
@@ -157,9 +163,10 @@ export default class Idealist extends React.Component{
                     visible={this.state.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    width={800}
                 >
                     <p>{this.state.noteuser}</p>
-                    <p>{this.state.notedetail}</p>
+                    <div className="thenote">{this.state.notedetail}</div>
                     <p>{this.state.notedate}</p>
                 </Modal>
             </div>
